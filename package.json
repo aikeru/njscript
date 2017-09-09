@@ -1,0 +1,22 @@
+{
+  "author": "Michael K Snead",
+  "name": "njs-runner",
+  "version": "0.0.1",
+  "description": "A script runner that allows mixing shell commands, ActiveX/COM and JavaScript",
+  "main": "app.js",
+  "bin": {
+	"njscript": "bin/njscript.js"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cross-spawn": "^5.1.0",
+    "edge": "^7.10.1",
+    "temp": "^0.8.3",
+    "winax": "^1.0.3"
+  }
+}

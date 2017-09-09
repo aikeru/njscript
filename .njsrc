@@ -1,0 +1,15 @@
+module.exports = {
+    onReceiveCommand: async (cmd) => {
+      if(cmd === 'CUSTOM') return true
+    },
+    prompt: async (runner) => {
+        let result = {lastCommand: {output: process.cwd() + ' >'}}
+        try {
+          result = await runner.executeScript(['!git rev-parse --abbrev-ref HEAD'], false, false, true)
+        } catch(e) { }
+        let prompt = result.lastCommand.output
+            .replace(/\r\n|\r|\n/g, '')
+        if(prompt.indexOf('fatal: Not a git') > -1) { return process.cwd() + ' >' }
+        return process.cwd() + ' ' + prompt + ' >'
+    }
+}
